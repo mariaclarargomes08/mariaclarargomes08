@@ -1,5 +1,4 @@
 <p align="center">
-<img src="<img width="1716" height="917" alt="image" src="https://github.com/user-attachments/assets/656735ec-e410-40dc-bebb-992b005585b5" />
 " width="100%">
 </p>
 ## Hi 👋 I'm Maria Clara
