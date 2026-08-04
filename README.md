@@ -46,7 +46,7 @@
 ### 📫 Contato
 
 <p align="center">
-  <a href="mariaclarargomes08@gmail.com">
+  <a href="mailto:mariaclarargomes08@gmail.com">
     <img src="https://img.shields.io/badge/Email-F8D7E8?style=for-the-badge&logo=gmail&logoColor=6E5A63" />
   </a>
   <a href="https://www.linkedin.com/in/maria-clara-rocha-gomes-6524a33b8/" target="_blank">
