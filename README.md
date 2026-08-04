@@ -62,8 +62,7 @@
 
 <div align="center">
 
-<img src="./assets/stats.svg" width="49%" />
-<img src="./assets/top-langs.svg" width="45%" />
+<img src="./assets/metrics.svg" width="100%" />
 
 </div>
 
