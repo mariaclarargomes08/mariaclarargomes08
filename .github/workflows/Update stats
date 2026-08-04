@@ -1,0 +1,21 @@
+name: Atualizar Métricas do GitHub
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # roda todo dia às 06h (UTC)
+  workflow_dispatch:        # permite rodar manualmente pelo botão "Run workflow"
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gerar imagem de métricas
+        uses: lowlighter/metrics@latest
+        with:
+          filename: assets/metrics.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: header, activity, community, repositories, languages
+          config_timezone: America/Sao_Paulo
