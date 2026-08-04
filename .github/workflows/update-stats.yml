@@ -1,1 +1,38 @@
+name: Atualizar GitHub Stats
 
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # roda todo dia às 06h (UTC)
+  workflow_dispatch:        # permite rodar manualmente pelo botão "Run workflow"
+  push:
+    branches:
+      - main
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar o repositório
+        uses: actions/checkout@v4
+
+      - name: Criar pasta de assets
+        run: mkdir -p assets
+
+      - name: Baixar card de estatísticas
+        run: |
+          curl -s "https://github-readme-stats.vercel.app/api?username=mariaclarargomes08&show_icons=true&bg_color=FFF5F8&title_color=E88AB4&text_color=6E5A63&icon_color=F4B6D2&border_color=F8D7E8&hide_border=false" -o assets/stats.svg
+
+      - name: Baixar card de linguagens
+        run: |
+          curl -s "https://github-readme-stats.vercel.app/api/top-langs/?username=mariaclarargomes08&layout=compact&bg_color=FFF5F8&title_color=E88AB4&text_color=6E5A63&border_color=F8D7E8&hide_border=false" -o assets/top-langs.svg
+
+      - name: Commitar as imagens atualizadas
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/stats.svg assets/top-langs.svg
+          git diff --quiet --cached || git commit -m "Atualiza GitHub stats automaticamente"
+          git push
